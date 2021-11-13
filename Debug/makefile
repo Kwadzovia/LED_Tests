@@ -121,34 +121,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-PulseSensor.out \
+PeripheralTests.out \
 
 EXE_OUTPUTS__QUOTED += \
-"PulseSensor.out" \
+"PeripheralTests.out" \
 
 BIN_OUTPUTS += \
-PulseSensor.hex \
+PeripheralTests.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"PulseSensor.hex" \
+"PeripheralTests.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "PulseSensor.out"
+	@$(MAKE) --no-print-directory -Onone "PeripheralTests.out"
 
 # Tool invocations
-PulseSensor.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+PeripheralTests.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=COMPILING_FOR_V1 --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"PulseSensor.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1100/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1100/ccs/ccs_base/msp430/lib/FR2xx" -i"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/lib" -i"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="PulseSensor_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "PulseSensor.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"PeripheralTests.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"C:/ti/ccs1100/ccs/ccs_base/msp430/include" -i"C:/ti/ccs1100/ccs/ccs_base/msp430/lib/FR2xx" -i"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/lib" -i"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="PeripheralTests_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "PeripheralTests.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-PulseSensor.hex: $(EXE_OUTPUTS)
+PeripheralTests.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: MSP430 Hex Utility'
-	"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "PulseSensor.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1100/ccs/tools/compiler/ti-cgt-msp430_21.6.0.LTS/bin/hex430" --memwidth=8 --romwidth=8 --diag_wrap=off -o "PeripheralTests.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
